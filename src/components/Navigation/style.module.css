@@ -1,0 +1,12 @@
+.Leftside {
+    width: 80px !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.RightSide {
+    bottom: 0;
+    position: absolute;
+    padding: 10px;
+}

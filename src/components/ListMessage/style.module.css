@@ -1,0 +1,12 @@
+.iconSearch {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+.boxMessage {
+    height: 100vh;
+    overflow-y: scroll;
+}
+.boxMessage::-webkit-scrollbar {
+    display: none;
+}

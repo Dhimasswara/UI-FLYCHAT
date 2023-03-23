@@ -1,0 +1,51 @@
+.parentUl {
+    width: 100% !important;
+}
+.parentText {
+    width: 80% !important;
+}
+.name {
+    width: 100%;
+}
+
+.box {
+    display: flex !important;
+    flex-direction: column !important; 
+    justify-content: space-between !important;
+    align-items: center;
+}
+.textWrapMax {
+    display: inline-block !important;
+    max-width: 100% !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    white-space: nowrap !important; /* important to show ellipsis, or words will just be broken off */
+}
+
+.buttonImg {
+    padding: 4px 5.5px;
+    position: absolute;
+    top: 25px;
+    right: 2px;
+    cursor: pointer;
+    background-color: rgb(25, 93, 33);
+    border-radius: 100%;
+}
+
+.formControl {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0px !important;
+    color: white !important;
+}
+.formControl:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid white !important;
+}
+
+.logout {
+    background-color: rgb(36, 36, 36);
+    border-radius: 10px;
+    cursor: pointer;
+}
