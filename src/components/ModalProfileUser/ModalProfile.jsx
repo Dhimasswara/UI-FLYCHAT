@@ -26,8 +26,8 @@ function ModalVertikal(props) {
             <div className='text-center bg-dark p-5'>
               <img src={data?.photo || admin} alt="" width={150} height={150} />
               <span className='text-center text-light'>
-                  <h1 className='text-light pt-4'>{data?.username !== undefined ? 'User' : data?.username}</h1>
-                  <p className='m-0'>{data?.phone}</p>
+                  <h1 className='text-light pt-4'>{data?.username === undefined ? 'User' : data?.username}</h1>
+                  <p className='m-0'>{data?.phone !== undefined ? '+62' : data?.phone === undefined ? '+62' : data?.phone}</p>
                   <div className='bg-main-green w-100 h-25 mt-4 rounded p-3'>
                       <p className='text-start'>Bio :</p>
                       <h4 >{data?.bio === undefined ? data?.bio : 'Hello Everybody'}</h4>
@@ -36,7 +36,7 @@ function ModalVertikal(props) {
             </div>
           </div>
         </Modal.Body>
-        <Modal.Footer>{/* <Button onClick={props.onHide}>Close</Button> */}</Modal.Footer>
+        <Modal.Footer className=''>{/* <Button onClick={props.onHide}>Close</Button> */}</Modal.Footer>
       </Modal>
     </>
   );

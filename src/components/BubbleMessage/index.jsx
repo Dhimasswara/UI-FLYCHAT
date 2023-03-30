@@ -21,11 +21,8 @@ const BubbleMessage = ({ body, reciver, receiver_id, time, handleDelete, handleE
                             </ul>
                     </span>
                 </div>
-                
-
                 <p className={receiver_id === reciver ? `position-absolute ${style.dateRight}` : `position-absolute ${style.date}`}>{time}</p>
             </div>
-
         </>
 
     )

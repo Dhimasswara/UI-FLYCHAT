@@ -31,11 +31,12 @@
     color: white !important;
     border-radius: 100%;
     border: none !important;
-    top: 50%;
-    left: 30px;
+    top: 35px;
+    left: 40px;
     height: 45px;
     width: 45px;
     transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 .inputText {
     border-radius: 50px !important;
@@ -45,6 +46,7 @@
     color: white !important;
     padding-left: 60px !important;
     box-shadow:  1px 66px 18px 39px  rgb(22, 25, 28) ;
+    padding-right: 70px !important;
 }
 .sendButton {
     background-color: teal !important;

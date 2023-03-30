@@ -14,15 +14,28 @@ import { useGetUserProfileQuery } from '../../features/auth/authApi'
 import { faMessage } from '@fortawesome/free-regular-svg-icons'
 import { useDispatch } from 'react-redux'
 import { setCredentials } from '../../app/reducer/authSlice'
+import { useNavigate } from 'react-router-dom'
 
 
 const LayoutChat = () => {
 
+  const navigate = useNavigate()
   const dispatch = useDispatch()
-  const {data: user} = useGetAllUserQuery()
+  const [search, setSearch] = useState('');
+  const {data: user} = useGetAllUserQuery({search})
   const {data: userLogin, isSuccess} = useGetUserProfileQuery()
   const [receiveId, setReceiverId] = useState(undefined);
   const [socket, setSocket] = useState(null)
+
+  // console.log(userLogin);
+
+  // useEffect(() => {
+  //   if(localStorage.getItem('token' , null) || !localStorage.getItem('token') ){
+  //     navigate("/login")
+  //   }else if(localStorage.getItem('token', userLogin?.email )){
+  //     navigate("/")
+  //   }
+  // }, []);
   
   useEffect(() => {
     const result = io(process.env.REACT_APP_BACKEND_API)
@@ -38,6 +51,7 @@ const LayoutChat = () => {
       }
       socket.on('online', data => {
         console.log('reaching user online');
+        dispatch({type : 'UPDATE_ONLINE', payload : data})
       })
     }
   }, [socket, userLogin]);
@@ -51,15 +65,36 @@ const LayoutChat = () => {
     }
   }, [user, isSuccess])
 
+  function enterHandlerSearch(e) {
+    if (e.code == 'Enter') {
+      navigate(`/?search=${search}`);
+    }
+  }
+
+  function click () {
+    const clicked = document.querySelector('#hello')
+    const clickeds = document.querySelector('#hellos')
+    clicked.classList.add('d-none')
+    clickeds.classList.remove('d-none')
+  }
+
+  function clicks () {
+    const clicked = document.querySelector('#hello')
+    const clickeds = document.querySelector('#hellos')
+    clicked.classList.remove('d-none')
+    clickeds.classList.add('d-none')
+
+  }
+
 
   return (
     <div className='container-fluid template-content'> 
       <div className="row">
         <Navigation />
-        <div className="col-12 col-md-3 bg-main-grey text-light" style={{height: '100vh', overflow: 'hidden'}}>
+        <div className="col-12 col-md-3 bg-main-grey bg-md-primary text-light" style={{height: '100vh', overflow: 'hidden'}}>
           <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade  show active" id="v-pills-message" role="tabpanel" aria-labelledby="v-pills-message-tab">
-                <div className={`p-md-4 py-4 text-light ${style.boxMessage}`}>
+            <div class="tab-pane fade show active" id="v-pills-message" role="tabpanel" aria-labelledby="v-pills-message-tab">
+                <div className={`p-md-4 py-4 text-light ${style.boxMessage} d-md-block`} id='hello'>
                 <div className="header mb-5">
                     <div className="option d-flex justify-content-between align-items-center">
                         <h4 className='m-0'>Chats</h4>
@@ -76,18 +111,28 @@ const LayoutChat = () => {
                     </div>
                     <div className="position-relative mt-4">
                         <form className="d-flex position-relative">
-                            <input className="form-control me-2 position-absolute" type="search" placeholder="Search" aria-label="Search" />
+                            <input 
+                            className="form-control me-2 pe-5 position-absolute" 
+                            type="search" 
+                            name='search'
+                            placeholder="Search" 
+                            aria-label="Search" 
+                            onChange={(e) => setSearch(e.target.value)}
+                            onKeyDown={enterHandlerSearch}
+                            />
                             <p className={style.iconSearch}><FontAwesomeIcon icon={faSearch} color='black' /> </p>
                         </form>
                     </div>
                 </div>
 
                 <div className="margin-top-cs">
-                  {user?user.map(data => ((
-                    <CardMessage onclick={()=> setReceiverId(data.id_user)} name={data.username} lastTime={data.lastTime} lastMessage={data.lastMessage} key={data.id_user} selected={data.id_user === receiveId} photo={data.photo} />
+                  {user?user.filter(fil => fil.id_user !== userLogin?.id_user).map(data => ((
+                    <CardMessage onclick={()=> {setReceiverId(data?.id_user); click()}} name={data.fullname} lastTime={data.lastTime} lastMessage={data.lastMessage} key={data?.id_user} selected={data?.id_user === receiveId} photo={data.photo} />
                   ))) : ( <p>No user</p> ) }
                 </div>
                 </div>
+              <ColumnMessage receiver_id={receiveId} socket={socket} clicks={clicks}/>
+
             </div>
             <div class="tab-pane fade" id="v-pills-notif" role="tabpanel" aria-labelledby="v-pills-notif-tab"><span><h4 className='p-4'>Notification</h4></span></div>
             <div class="tab-pane fade" id="v-pills-setting" role="tabpanel" aria-labelledby="v-pills-setting-tab"><Settings/></div>
@@ -99,7 +144,6 @@ const LayoutChat = () => {
             ) : (
                 <ColumnMessage receiver_id={receiveId} socket={socket}/>
             )}  
-            
         </div>
       </div>
     </div>

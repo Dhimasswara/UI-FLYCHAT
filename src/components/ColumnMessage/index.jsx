@@ -2,7 +2,7 @@ import style from './style.module.css'
 import admin from '../../assets/profile/admin.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons'
-import { faBars, faPaperclip, faPhone} from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faBars, faPaperclip, faPhone} from '@fortawesome/free-solid-svg-icons'
 import React, { useState, useEffect, useRef } from "react"
 import BubbleMessage from '../BubbleMessage'
 import { v4 as uuid } from 'uuid';
@@ -10,9 +10,12 @@ import { v4 as uuidv4 } from "uuid";
 import axios from 'axios'
 import { useGetUserByIdQuery } from '../../features/user/userApi'
 import ModalVertikal from '../ModalProfileUser/ModalProfile'
+import { useSelector } from 'react-redux'
+import Swal from 'sweetalert2'
 
-const ColumnMessage = ({ receiver_id, socket }) => {
+const ColumnMessage = ({ receiver_id, socket, clicks }) => {
   
+  const {userOnline : {onlineUser}} = useSelector(state=>state)
   const scrollRef = useRef();
   const bottomRef = useRef(null);
   const input = useRef(null)
@@ -41,18 +44,33 @@ const ColumnMessage = ({ receiver_id, socket }) => {
   }
 
   const handleDeleteMessage = async (id) => {
-    // console.log(id);
-    console.log(messages);
-    setMessages(messages.filter((data) => {
-      return data.id !== id
-    }))
+    Swal.fire ({
+      title: 'Are you sure?',
+      text: "Delete message",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Delete'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted',
+          'success'
+        )
+        // console.log(messages);
+        setMessages(messages.filter((data) => {
+          return data.id !== id
+        }))
+      }
+    })
     // console.log(messages);
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     }
     try {
       const result = await axios.delete(process.env.REACT_APP_BACKEND_API + '/message/' + id, config)
-      console.log(result.data.data)
+      console.log(result.data.data);
     } catch (error) {
       console.log(error)
     }
@@ -183,12 +201,14 @@ const ColumnMessage = ({ receiver_id, socket }) => {
 
 
   return (
-    <div className={`px-5 ${style.column}`}>
+    <div className={`px-0 px-md-5 d-md-block d-none ${style.column}`} id='hellos'>
       <div className={`${style.header} border-bottom border-secondary justify-content-between d-flex align-items-center`}>
         <span className='d-flex align-items-center'>
+          <span className='me-4 d-md-none' onClick={clicks}><FontAwesomeIcon icon={faArrowLeft}/> </span>
           <img crossOrigin='anonymouse' src={users?.photo !== undefined ? users?.photo : admin  } width={50} height={50} alt="" />
           <div className="name text-light">
-            <p className='m-0 fs-5 fw-bolder ms-3'>{users?.username}</p>
+            <p className='m-0 fs-5 fw-bolder ms-3'>{users?.fullname}</p>
+            <span className='ms-3'>{onlineUser?.includes(receiver_id) ? 'Online' : 'Offline'}</span>
           </div>
         </span>
         <span className='text-dark bg-dark'>
@@ -204,7 +224,7 @@ const ColumnMessage = ({ receiver_id, socket }) => {
         </span>
       </div>
 
-      <div className={` ${style.content} pt-5 text-light`}>
+      <div className={` ${style.content} pt-2 text-light`}>
 
         {messages?.map(data => (
           <div ref={scrollRef} key={uuidv4()} >
@@ -224,7 +244,7 @@ const ColumnMessage = ({ receiver_id, socket }) => {
       <div className={style.SendText}>
         <div className={` ${style.boxText} d-flex `}>
           <form onSubmit={(e) => handleMessage(e)} className={`${style.formStyle} position-relative`}>
-            <button disabled className={`position-absolute ${style.iconFile} `}><FontAwesomeIcon icon={faPaperclip} /> </button>
+            <a className={`position-absolute ${style.iconFile} `}><FontAwesomeIcon icon={faPaperclip} /> </a>
             <input type="text" class={`form-control position-relative ${style.inputText}`} id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='type text here' autoComplete='off' value={message} onChange={(e) => setMessage(e.target.value)} />
             <button type='submit' className={`position-absolute ${style.sendButton}`}><FontAwesomeIcon icon={faPaperPlane} /> </button>
           </form>

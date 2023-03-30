@@ -6,7 +6,7 @@ const LayoutAuth = ({children, title}) => {
   return (
     <div className={`bg-main-dark ${style.main} d-grid`}>
         <div className="row justify-content-center align-items-center">
-            <div className="col-10 col-md-6 col-lg-4 col-xl-3 text-light p-5 bg-main-grey rounded">
+            <div className="col-10 col-md-6 col-lg-4 col-xl-3 text-light py-5 px-4 bg-main-grey rounded">
                 <div className="header d-flex align-items-center justify-content-start mb-2">
                      <img src={logo} width={80} height={80} alt="" style={{marginLeft: '-25px'}}/>
                      <h4>FlyChat</h4>

@@ -20,7 +20,13 @@ const Setting = () => {
   const {data: user, isSuccess} = useGetUserProfileQuery()
   const [updateProfile, {isLoading: isLoadingUpdate, isSuccess: isSuccessUpdate, isError: isErrorUpdate}] = useUpdateUserByIdMutation()
   const [selectedFile, setSelectedFile] = useState();
+  const [preview, setPreview] = useState();
+
   const id  = user?.id_user;
+
+  function trigerInputFile(e) {
+    document.querySelector(`#user-photo`).click()
+  }
 
   const [data, setData] = useState({
     username: '',
@@ -87,6 +93,19 @@ const Setting = () => {
     });
   };
 
+  useEffect(() => {
+    if (!selectedFile) {
+      setSelectedFile(undefined);
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(selectedFile);
+    setPreview(objectUrl);
+
+    // free memory when ever this component is unmounted
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [selectedFile]);
+
   const logoutHandler = async (e) => {
     Swal.fire({
       title: 'Are you sure?',
@@ -117,12 +136,12 @@ const Setting = () => {
         </div>
         <form onSubmit={(e)=> handleUpdate(e)}>
         <span className=''>
-            <img src={user?.photo || admin} width={120} height={120} alt="" />
-            <label htmlFor="input" className='position-relative'>
+            <img src={preview ? preview : user?.photo === undefined ? admin : user?.photo === null ? admin : user?.photo} width={120} height={120} alt="" style={{borderRadius: '100%'}}/>
+            <label htmlFor="user-photo" className='position-relative'>
               <span className={style.buttonImg}>
                 <FontAwesomeIcon icon={faCamera} className='py-1 px-1' />
               </span>
-              <input type='file' name='photo' onChange={selectFile} id='input' className='d-none' />
+              <input id='user-photo' type='file' name='photo' onChange={selectFile} className='d-none' onClick={trigerInputFile}   />
             </label>
           
         </span>
@@ -135,7 +154,7 @@ const Setting = () => {
             <input 
             type="text" 
             name='username' 
-            value={data.username} 
+            value={data?.username} 
             class={`${style.formControl} form-control border-none`}  placeholder="name@example.com"
             onChange={(e)=>changeHandler(e)}
             />
@@ -146,7 +165,7 @@ const Setting = () => {
             <input 
             type="text" 
             name='fullname' 
-            value={data.fullname} 
+            value={data?.fullname} 
             class={`${style.formControl} form-control border-none`}
             placeholder="name@example.com"
             onChange={(e)=>changeHandler(e)}
@@ -157,7 +176,7 @@ const Setting = () => {
             <input 
             type="text" 
             class={`${style.formControl} form-control border-none`} name='phone' 
-            value={data.phone}
+            value={data?.phone}
             placeholder="name@example.com"
             onChange={(e)=>changeHandler(e)}
             />
@@ -167,7 +186,7 @@ const Setting = () => {
             <input 
             type="text" 
             class={`${style.formControl} form-control border-none`} 
-            name='bio' value={data.bio} 
+            name='bio' value={data?.bio} 
             placeholder="name@example.com"
             onChange={(e)=>changeHandler(e)}
             />

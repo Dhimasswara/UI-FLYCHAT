@@ -4,9 +4,10 @@ export const userApi = apiSlice.injectEndpoints({
   tagTypes: ['getAllUser'],
   endpoints: (builder) => ({
     getAllUser: builder.query({
-      query: (query) => ({
-        url: '/',
-      }),
+      query: ({search}) => {
+        return {
+        url: `/?search=${search}`,
+      }},
 
       providesTags: ['getAllUser'],
       transformResponse: (response, meta, args) => response.data,
