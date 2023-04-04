@@ -1,0 +1,51 @@
+.message {
+    background-color: #1a1d21 !important;
+    color: white;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 10px 10px 10px 0;
+    word-wrap: break-word;
+}
+
+.messageRight {
+    background-color: #1a1d21 !important;
+    color: white;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 10px 10px 0 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.boxMessage {
+    max-width: 50%;
+}
+.date {
+    bottom: -20px !important;
+    left: 55px !important;
+    font-size: 12px;
+}
+
+.dateRight {
+    bottom: -20px !important;
+    right: 7px !important;
+    font-size: 12px;
+}
+
+.left {
+    justify-content: start;
+}
+
+.right {
+    justify-content: end;
+}
+
+
+@media only screen and (max-width: 768px)  {
+    .message {
+        background-color: #16191c !important;
+    }
+    .messageRight {
+        background-color: #16191c !important;
+    }
+}

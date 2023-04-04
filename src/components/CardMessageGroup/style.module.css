@@ -1,0 +1,17 @@
+.parentUl {
+    width: 100% !important;
+    cursor: pointer;
+}
+.parentText {
+    width: 85% !important;
+}
+.name {
+    width: 100%;
+}
+.textWrapMax {
+    display: inline-block !important;
+    max-width: 100% !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    white-space: nowrap !important; /* important to show ellipsis, or words will just be broken off */
+}
