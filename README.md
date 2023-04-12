@@ -90,8 +90,30 @@ Create .env file in your root project folder.
     <td>Login</td>
     <td>Register</td>
   </tr>
-
-
+  <tr>
+    <td><img width="350px" src="public\documentation\profile.png"  border="0" border="0" alt="1" /></td>
+    <td> <img width="350px" src="public\documentation\landing_page.png" \ border="0"  border="0"  border="0"  alt="2" /></td>
+  </tr>
+   <tr>
+    <td>Profile</td>
+    <td>Landing Page</td>
+  </tr>
+   <tr>
+    <td><img width="350px" src="public\documentation\dashboard-chat.png"  border="0" border="0" alt="1" /></td>
+    <td> <img width="350px" src="public\documentation\profile-chat.png" \ border="0"  border="0"  border="0"  alt="2" /></td>
+  </tr>
+   <tr>
+    <td>Dashboard-chat</td>
+    <td>Profile-chat</td>
+  </tr>
+   <tr>
+    <td><img width="350px" src="public\documentation\profile-mobile.png"  border="0" border="0" alt="1" /></td>
+    <td> <img width="350px" src="public\documentation\chat-mobile.png" \ border="0"  border="0"  border="0"  alt="2" /></td>
+  </tr>
+   <tr>
+    <td>Profile-mobile</td>
+    <td>Chat-mobile</td>
+  </tr>
 </table>
 <!-- CONTRIBUTING -->
 
