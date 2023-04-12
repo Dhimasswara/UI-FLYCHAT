@@ -18,6 +18,7 @@ const ColumnGroup = ({room, socket }) => {
   const [messages, setMessages] = useState([]);
 
   const {data: user} = useGetUserProfileQuery()
+  console.log(user?.fullname);
 
 
   useEffect(() => {

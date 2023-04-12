@@ -5,7 +5,7 @@ import { setCredentials, logout } from '../reducer/authSlice'
 
 const baseQuery = fetchBaseQuery({
   baseUrl: process.env.REACT_APP_BACKEND_API,
-  credentials: "same-origin",
+  credentials: 'include',
   prepareHeaders: (headers, {getState}) => {
     
     if(localStorage.getItem('token')) {

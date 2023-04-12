@@ -170,11 +170,11 @@ const LayoutChat = () => {
              
             }   */}
 
-          {/* {receiveId === undefined || room === undefined ? <Welcome/> : receiveId !== undefined ? <ColumnMessage receiver_id={receiveId} socket={socket}/> : room === 'Pijar' ?
+          {receiveId === undefined && room === undefined ? <Welcome/> : receiveId !== undefined ? <ColumnMessage receiver_id={receiveId} socket={socket}/> : room === 'Pijar' ?
           <ColumnGroup socket={socket} room={room} /> : ''
-          } */}
+          }
 
-          {room === undefined ? <Welcome /> : <ColumnGroup socket={socket} room={room} />}
+          {/* {room === undefined ? <Welcome /> : <ColumnGroup socket={socket} room={room} />} */}
         </div>
       </div>
     </div>
