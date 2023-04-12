@@ -9,19 +9,25 @@ import PrivateRoute from '../middleware/PrivateRoot'
 const Router = () => {
   return (
     <BrowserRouter>
-            <Routes>
-                <PrivateRoute>
-                  <Route path={'/'} element={<LayoutChat/>}></Route>
-                </PrivateRoute> 
+      <Routes>
+        <Route path={'/'} element={
+          <PrivateRoute>
+            <LayoutChat />
+          </PrivateRoute>}>
 
-                <PrivateRoute>
-                  <Route path={'/chatroom'} element={<ColumnGroup/>}></Route> 
-                </PrivateRoute> 
-                
-                <Route path={'/login'} element={<Login/>}></Route> 
-                <Route path={'/register'} element={<Register/>}></Route>
+        </Route>
 
-            </Routes>
+        <Route path={'/chatroom'} element={
+          <PrivateRoute>
+            <ColumnGroup />
+          </PrivateRoute>
+        }>
+        </Route>
+
+        <Route path={'/login'} element={<Login />}></Route>
+        <Route path={'/register'} element={<Register />}></Route>
+
+      </Routes>
     </BrowserRouter>
   )
 }
