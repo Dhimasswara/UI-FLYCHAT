@@ -4,15 +4,23 @@ import LayoutChat from '../pages/chat'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
 import ColumnGroup from '../components/ColumnGroup/ColumnGroup'
+import PrivateRoute from '../middleware/PrivateRoot'
 
 const Router = () => {
   return (
     <BrowserRouter>
             <Routes>
-                <Route path={'/'} element={<LayoutChat/>}></Route> 
-                <Route path={'/chatroom'} element={<ColumnGroup/>}></Route> 
+                <PrivateRoute>
+                  <Route path={'/'} element={<LayoutChat/>}></Route>
+                </PrivateRoute> 
+
+                <PrivateRoute>
+                  <Route path={'/chatroom'} element={<ColumnGroup/>}></Route> 
+                </PrivateRoute> 
+                
                 <Route path={'/login'} element={<Login/>}></Route> 
-                <Route path={'/register'} element={<Register/>}></Route> 
+                <Route path={'/register'} element={<Register/>}></Route>
+
             </Routes>
     </BrowserRouter>
   )
