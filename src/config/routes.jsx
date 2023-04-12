@@ -22,6 +22,7 @@ const Router = () => {
             <ColumnGroup />
           </PrivateRoute>
         }>
+
         </Route>
 
         <Route path={'/login'} element={<Login />}></Route>

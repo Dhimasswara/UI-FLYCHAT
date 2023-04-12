@@ -5,11 +5,7 @@ const PrivateRoute = ({children}) => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if(!localStorage.getItem('token', null || undefined)) {
-        navigate('/login')
-    } else {
-        navigate('/')
-    }
+    if(!localStorage.getItem('token')) return navigate('/login')
   }, [])
   return children
 }
