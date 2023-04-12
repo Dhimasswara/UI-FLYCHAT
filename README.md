@@ -1,8 +1,8 @@
 <p align="center">
 <div align="center">
-<h1 align="center">Dialogue</h1>
+<h1 align="center">Fly Chat</h1>
 </div>
-  <h3 align="center">Dialogue (Realtime Chat App)</h3>
+  <h3 align="center">Flychat (Realtime Chat App)</h3>
   <p align="center">
     <a href="https://github.com/Dhimasswara/UI-FLYCHAT"><strong>Explore the docs »</strong></a>
     <br />
