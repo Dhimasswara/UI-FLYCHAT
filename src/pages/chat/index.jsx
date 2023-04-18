@@ -147,9 +147,10 @@ const LayoutChat = () => {
                   </div>
                 </div>
               </div>
-              {user && 
+              <div className='d-block d-md-none'>
               <ColumnMessage receiver_id={receiveId} socket={socket} clicks={clicks} />
-              }
+              </div>
+              
             </div>
             <div class="tab-pane fade" id="v-pills-notif" role="tabpanel" aria-labelledby="v-pills-notif-tab"><span><h4 className='p-4'>Notification</h4></span></div>
             <div class="tab-pane fade" id="v-pills-setting" role="tabpanel" aria-labelledby="v-pills-setting-tab"><Settings /></div>
