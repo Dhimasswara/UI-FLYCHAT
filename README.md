@@ -6,7 +6,7 @@
   <p align="center">
     <a href="https://github.com/Dhimasswara/UI-FLYCHAT"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://ui-flychat-ifr6.vercel.app">View Demo</a>
+    <a href="https://ui-flychat.vercel.app/">View Demo</a>
     <br />
     <a href="https://api-flychat-production.up.railway.app">Api Demo</a>
   </p>
