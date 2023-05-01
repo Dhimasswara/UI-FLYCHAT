@@ -14,7 +14,6 @@ const Router = () => {
           <PrivateRoute>
             <LayoutChat />
           </PrivateRoute>}>
-
         </Route>
 
         <Route path={'/chatroom'} element={

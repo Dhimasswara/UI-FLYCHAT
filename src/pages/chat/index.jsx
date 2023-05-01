@@ -54,14 +54,14 @@ const LayoutChat = () => {
     }
   }, [socket, userLogin]);
 
-  useEffect(() => {
-    if (!user) {
-      dispatch(setCredentials({
-        user: userLogin,
-        token: localStorage.getItem('token')
-      }))
-    }
-  }, [user, isSuccess])
+  // useEffect(() => {
+  //   if (!user) {
+  //     dispatch(setCredentials({
+  //       user: userLogin,
+  //       token: localStorage.getItem('token')
+  //     }))
+  //   }
+  // }, [user, isSuccess])
 
   function enterHandlerSearch(e) {
     if (e.code == 'Enter') {
