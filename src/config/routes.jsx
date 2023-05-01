@@ -8,7 +8,7 @@ import PrivateRoute from '../middleware/PrivateRoot'
 
 const Router = () => {
   return (
-    <BrowserRouter>
+    
       <Routes>
         <Route path={'/'} element={
           <PrivateRoute>
@@ -28,7 +28,6 @@ const Router = () => {
         <Route path={'/register'} element={<Register />}></Route>
 
       </Routes>
-    </BrowserRouter>
   )
 }
 
