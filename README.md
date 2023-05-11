@@ -32,9 +32,9 @@
 
 ## About The Project
 
-Flychat is a website project aimed to facilitate real-time communication between connected users. With an easy-to-use chat feature, users can communicate with each other quickly and efficiently.
+Flychat is a website project aimed at facilitating real-time communication between connected users. With the easy-to-use chat feature, users can communicate with each other quickly and efficiently.
 
-The main feature of Flychat is the ability to create chat groups with friends or colleagues. To use Dialogue, users only need to create an account and start inviting their friends or colleagues to join the group or send private messages. Dialogue is designed to be user-friendly and accessible to all levels of users.
+The main feature of Flychat is the ability to create group chats with friends or family. Using Flychat is quite simple, friends just need to register to create a Flychat account and then this application can run, if friends want to chat with friends or family, Flychat already has a group chat feature.
 
 <!-- GETTING STARTED -->
 
