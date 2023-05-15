@@ -27,10 +27,10 @@ function ModalVertikal(props) {
               <img src={data?.photo || admin} alt="" width={150} height={150} />
               <span className='text-center text-light'>
                   <h1 className='text-light pt-4'>{data?.username === undefined ? 'User' : data?.username}</h1>
-                  <p className='m-0'>{data?.phone !== undefined ? '+62' : data?.phone === undefined ? '+62' : data?.phone}</p>
+                  <p className='m-0'>{'+628' + data?.phone.slice(2)}</p>
                   <div className='bg-main-green w-100 h-25 mt-4 rounded p-3'>
                       <p className='text-start'>Bio :</p>
-                      <h4 >{data?.bio === undefined ? data?.bio : 'Hello Everybody'}</h4>
+                      <h4 >{data?.bio}</h4>
                   </div>
               </span>
             </div>
