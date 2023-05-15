@@ -137,7 +137,7 @@ const LayoutChat = () => {
                   <div className="tab-content" id="pills-tabContent">
                     <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         {user?user.filter(fil => fil.id_user !== userLogin?.id_user).map(data => ((
-                        <CardMessage onclick={()=> {setReceiverId(data?.id_user); click()}} name={data.fullname} lastTime={data.lastTime} lastMessage={data.lastMessage} key={data?.id_user} selected={data?.id_user === receiveId} photo={data.photo} />
+                        <CardMessage onclick={()=> {setReceiverId(data?.id_user); click()}} name={data?.fullname} lastTime={data?.lastTime} lastMessage={data?.lastMessage} key={data?.id_user} selected={data?.id_user === receiveId} photo={data.photo} />
                       ))) : ( <p>No user</p> ) }
                     </div>
                     <div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
