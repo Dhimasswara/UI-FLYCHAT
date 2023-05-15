@@ -6,7 +6,7 @@
   <p align="center">
     <a href="https://github.com/Dhimasswara/UI-FLYCHAT"><strong>Explore the docs »</strong></a>
     <br />
-    <a href="https://ui-flychat-ifr6.vercel.app">View Demo</a>
+    <a href="https://ui-flychat.vercel.app/">View Demo</a>
     <br />
     <a href="https://api-flychat-production.up.railway.app">Api Demo</a>
   </p>
@@ -32,9 +32,9 @@
 
 ## About The Project
 
-Flychat is a website project aimed to facilitate real-time communication between connected users. With an easy-to-use chat feature, users can communicate with each other quickly and efficiently.
+Flychat is a website project aimed at facilitating real-time communication between connected users. With the easy-to-use chat feature, users can communicate with each other quickly and efficiently.
 
-The main feature of Flychat is the ability to create chat groups with friends or colleagues. To use Dialogue, users only need to create an account and start inviting their friends or colleagues to join the group or send private messages. Dialogue is designed to be user-friendly and accessible to all levels of users.
+The main feature of Flychat is the ability to create group chats with friends or family. Using Flychat is quite simple, friends just need to register to create a Flychat account and then this application can run, if friends want to chat with friends or family, Flychat already has a group chat feature.
 
 <!-- GETTING STARTED -->
 
@@ -133,6 +133,6 @@ Contributions are what make the open source community such an amazing place to b
 
 :rocket: [`Frontend Flychat`](https://github.com/Dhimasswara/UI-FLYCHAT)
 
-:rocket: [`Demo Flychat`](https://ui-flychat-newest.vercel.app/)
+:rocket: [`Demo Flychat`](https://ui-flychat.vercel.app/)
 
 Project Link: [https://github.com/Dhimasswara/UI-FLYCHAT](https://github.com/Dhimasswara/UI-FLYCHAT)

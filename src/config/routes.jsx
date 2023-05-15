@@ -8,13 +8,12 @@ import PrivateRoute from '../middleware/PrivateRoot'
 
 const Router = () => {
   return (
-    <BrowserRouter>
+    
       <Routes>
         <Route path={'/'} element={
           <PrivateRoute>
             <LayoutChat />
           </PrivateRoute>}>
-
         </Route>
 
         <Route path={'/chatroom'} element={
@@ -29,7 +28,6 @@ const Router = () => {
         <Route path={'/register'} element={<Register />}></Route>
 
       </Routes>
-    </BrowserRouter>
   )
 }
 
