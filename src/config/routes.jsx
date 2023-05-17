@@ -9,7 +9,9 @@ import PrivateRoute from '../middleware/PrivateRoot'
 const Router = () => {
   return (
     
+    <BrowserRouter>
       <Routes>
+        {/* <Route index element={<Login/>}/> */}
         <Route path={'/'} element={
           <PrivateRoute>
             <LayoutChat />
@@ -28,6 +30,7 @@ const Router = () => {
         <Route path={'/register'} element={<Register />}></Route>
 
       </Routes>
+      </BrowserRouter>
   )
 }
 
